@@ -1,57 +1,45 @@
-function GetPrice() 
-{
-    var base_url = "https://api-staging.redpointtravelprotection.com";
-    //var base_url = "http://ripcord-api.test";
-    var endpoint = "/api/agent/agent_login";
-    
+/**
+* Example of calling the Redpoint Pricing Engine API via javascript. 
+* @author Jason Douglas
+*/
 
-	//Only required for running on command line using Node.js
-	var XMLHttpRequest = require('xhr2');
-	
-	var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
-             console.log(this.responseText);
-         }
-    };
-    
-	data = JSON.stringify({ 
-	   agent_username : "test@account.com",
-	   agent_password : "password",
-	   agent_filter : "test_account",
-	});
+//This line is required to run via Node.js. Otherwise the Fetch API is supplied by the browser. 
+const fetch = require('node-fetch');
 
-    xhttp.open("POST", base_url+endpoint, true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(data);
-    
-	let result = xhttp.responseText;
-	console.log( "got result: " + result );
-	//let result_json = JSON.parse(result);
-	
-	//return result;
-    
-    /**
-	data = JSON.stringify({ 
-	   traveler_dob : ["12/12/1987","2/2/1946"],
-	   traveler_trip_cost : ["3456","23423"],
-	   trip_start_date : "9/29/2021",
-	   trip_end_date : "10/9/2021",
-	   api_token :"thisisatoken",
-	   cancel_policy : "true"
-	});
-	
+let data = {
+    agent_username: "test@account.com",
+    agent_password: "password",
+    agent_filter: "test_account"
+};
 
-
-	endpoint = "/api/quote/get_price";
+fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', {
+//fetch('http://ripcord-api.test/api/agent/agent_login.php', {
+	  method: 'POST',
+	  body: JSON.stringify(data),
+   	  headers: { 'Content-Type': 'application/json' }
+ 	})
+ 	.then(res => res.json())
+ 	.then(json => {
+		data = JSON.stringify({ 
+		   traveler_dob : ["12/12/1987","2/2/1946"],
+		   traveler_trip_cost : ["3456","23423"],
+		   trip_start_date : "9/29/2021",
+		   trip_end_date : "10/9/2021",
+		   api_token : json.api_token,
+		   cancel_policy : "true"
+		});
+		
+		fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
+		//fetch('http://ripcord-api.test/api/quote/get_price.php', {
+			method: 'POST',
+			body: data,
+		   	headers: { 'Content-Type': 'application/json' }
+		})
+		.then(res => res.json())
+		.then(json => {
+			console.log( json );
+		})
+		.catch(err => console.log(err))
+ 	});
 
 
-    
-    xhttp.open("POST", base_url+endpoint, true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(data);
-    return xhttp.responseText;
-    */
-}
-
-console.log( "Get Price Returned: " + GetPrice() );
