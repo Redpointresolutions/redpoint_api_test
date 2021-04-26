@@ -15,8 +15,8 @@ $result = json_decode($result,true);
 $endpoint = "/api/quote/generate_quote.php";
 
 $data = array( "resident_country" => "US",
-			   "resident_state" => "MO",
-			   "destination_country" => "BN",
+			   "resident_state" => "CA",
+			   "destination_country" => "US",
 			   "travel_insurance_type" => "2",
 			   "evac_type" => "2",
 			   "cancel_policy" => "false",

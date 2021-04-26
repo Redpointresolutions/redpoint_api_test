@@ -12,6 +12,7 @@ let data = {
     agent_filter: "test_account"
 };
 
+
 fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', {
 //fetch('http://ripcord-api.test/api/agent/agent_login.php', {
 	  method: 'POST',
@@ -22,22 +23,25 @@ fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', 
  	.then(json => {
 		data = JSON.stringify({ 
 		   traveler_dob : ["12/12/1987","2/2/1946"],
-		   traveler_trip_cost : ["3456","23423"],
+		   traveler_trip_cost : ["3456","3423"],
 		   trip_start_date : "9/29/2021",
 		   trip_end_date : "10/9/2021",
-		   api_token : json.api_token,
-		   cancel_policy : "true"
+		   program: "harbor", //Optional defaults to ripcord
+		   agent_override: "tcs", //Optional defaults to blank. 
+		   cancel_policy: true, //Optional. defaults to false
+		   api_token : json.api_token
 		});
 		
-		fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
-		//fetch('http://ripcord-api.test/api/quote/get_price.php', {
+		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
+		fetch('http://ripcord-api.test/api/quote/get_price.php', {
 			method: 'POST',
 			body: data,
 		   	headers: { 'Content-Type': 'application/json' }
 		})
-		.then(res => res.json())
-		.then(json => {
-			console.log( json );
+		.then(response => response.json())
+		.then(response_data => {
+			//The response_data contains all the info. Handle results here. 
+			console.log( response_data );
 		})
 		.catch(err => console.log(err))
  	});
