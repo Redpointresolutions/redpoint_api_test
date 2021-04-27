@@ -24,35 +24,12 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
  	.then(res => res.json())
  	.then(json => {
 		data = JSON.stringify({ 
-			resident_country : "US",
-			resident_state : "CA",
-			destination_country : "UK",
-			additional_destination_countries : "SG,CR", //Optional
-			travel_insurance_type : "2",
-			evac_type : "2",
-			cancel_policy : "false",
-			traveler_first_name : ["Jason","Billy"],
-			traveler_last_name : ["APITest","Boggs"],
-			traveler_dob : ["12/12/1987","2/2/1946"],
-			traveler_trip_cost : ["3456","3423"],
-			trip_start_date : "9/29/2021",
-			trip_end_date : "10/9/2021",
-			initial_deposit_date : todayStr,
-			program : "harbor",
-			quoted_price : "",
-			street_address : "123 C Street",
-			city : "Santa Cruz",
-			state : "CA",
-			zip : "95060",
-			cell_phone : "4084274127",
-			home_phone : "",
-			email : "test@test.com",
-			agent_override : "tcs", //Optional 
+			redpoint_policy_number : "UOI202150378",
 			api_token : json.api_token
 		});
 		
-		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/generate_quote', {
-		fetch('http://ripcord-api.test/api/quote/generate_quote.php', { //Local Test
+		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/purchase_quote', {
+		fetch('http://ripcord-api.test/api/quote/purchase_quote.php', { //Local Test
 			method: 'POST',
 			body: data,
 		   	headers: { 'Content-Type': 'application/json' }
