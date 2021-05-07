@@ -12,7 +12,7 @@ let todayStr = (today.getMonth()+1)+"/"+(today.getDate())+"/"+today.getFullYear(
 let data = {
     agent_username: "test@account.com",
     agent_password: "password",
-    agent_filter: "test_account"
+    agent_id: "test_account"
 };
 
 //fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', {
@@ -39,7 +39,7 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 			trip_end_date : "10/9/2021",
 			initial_deposit_date : todayStr,
 			program : "harbor",
-			quoted_price : "",
+			quoted_price : "333",
 			street_address : "123 C Street",
 			city : "Santa Cruz",
 			state : "CA",
@@ -47,9 +47,12 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 			cell_phone : "4084274127",
 			home_phone : "",
 			email : "test@test.com",
+			send_email : "true",
 			agent_override : "tcs", //Optional 
 			api_token : json.api_token
 		});
+		
+		console.log( JSON.parse(data,null,4) );
 		
 		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/generate_quote', {
 		fetch('http://ripcord-api.test/api/quote/generate_quote.php', { //Local Test

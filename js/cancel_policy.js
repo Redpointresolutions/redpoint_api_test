@@ -25,13 +25,12 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
  	.then(json => {
 		data = JSON.stringify({ 
 			redpoint_policy_number : "UOI202150378",
+			trip_cost_additions : ["500","500"],
 			api_token : json.api_token
 		});
 		
-		console.log( JSON.parse(data,null,4) );
-
-		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/purchase_quote', {
-		fetch('http://ripcord-api.test/api/quote/purchase_quote.php', { //Local Test
+		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/update_policy', {
+		fetch('http://ripcord-api.test/api/policy/cancel_policy.php', { //Local Test
 			method: 'POST',
 			body: data,
 		   	headers: { 'Content-Type': 'application/json' }

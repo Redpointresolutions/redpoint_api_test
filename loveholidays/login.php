@@ -6,7 +6,7 @@ require_once( "call_api.php" );
 $base_url = "https://api-staging.ripcordrescuetravelinsurance.com";
 $endpoint = "/api/agent/agent_login";
 
-$data = array( "agent_filter" => "loveholidays",
+$data = array( "agent_id" => "loveholidays",
 			   "agent_username" => "andy.sellick@loveholidays.com",
 			   "agent_password" => "pplhas200618" );
 			   

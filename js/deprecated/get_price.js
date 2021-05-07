@@ -24,7 +24,7 @@ function GetPrice()
 	data = JSON.stringify({ 
 	   agent_username : "test@account.com",
 	   agent_password : "password",
-	   agent_filter : "test_account",
+	   agent_id: "test_account",
 	});
 
     xhttp.open("POST", base_url+endpoint, true);

@@ -9,7 +9,7 @@ const fetch = require('node-fetch');
 let data = {
     agent_username: "test@account.com",
     agent_password: "password",
-    agent_filter: "test_account"
+    agent_id: "test_account"
 };
 
 
@@ -24,13 +24,15 @@ fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', 
 		data = JSON.stringify({ 
 		   traveler_dob : ["12/12/1987","2/2/1946"],
 		   traveler_trip_cost : ["3456","3423"],
-		   trip_start_date : "9/29/2021",
-		   trip_end_date : "10/9/2021",
-		   program: "harbor", //Optional defaults to ripcord
-		   agent_override: "tcs", //Optional defaults to blank. 
-		   cancel_policy: true, //Optional. defaults to false
+		   //trip_start_date : "9/29/2021",
+		   //trip_end_date : "10/9/2021",
+		   //program: "harbor", //Optional defaults to ripcord
+		   //agent_override: "tcs", //Optional defaults to blank. 
+		   //cancel_policy: true, //Optional. defaults to false
 		   api_token : json.api_token
 		});
+		
+		console.log( JSON.parse(data,null,4) );
 		
 		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
 		fetch('http://ripcord-api.test/api/quote/get_price.php', {

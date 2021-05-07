@@ -5,7 +5,7 @@ require_once( "call_api.php" );
 $base_url = "http://ripcord-api.test";
 $endpoint = "/api/agent/agent_login.php";
 
-$data = array( "agent_filter" => "test_account",
+$data = array( "agent_id" => "test_account",
 			   "agent_username" => "test@account.com",
 			   "agent_password" => "password" );
 			   
