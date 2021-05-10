@@ -14,8 +14,8 @@ $result = json_decode($result,true);
 
 $endpoint = "/api/policy/update_policy.php";
 
-$data = array( "redpoint_policy_number" => "UOI202150391",
-			   "trip_cost_updates" => array("-500","-500"),
+$data = array( "redpoint_policy_number" => "UOI202150418",
+			   "trip_cost_updates" => array("500"),
 			   "send_email" => "true",
 			   "api_token" => $result['api_token'],
 			 );

@@ -25,10 +25,10 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
  	.then(json => {
 		data = JSON.stringify({ 
 			resident_country : "US",
-			resident_state : "CA",
-			destination_countries : ["UK,SG,CR"], 
+			resident_state : "FL",
+			destination_countries : ["UK","CR"], 
 			travel_insurance_type : "2",
-			evac_type : "2",
+			evac_type : "1",
 			cancel_policy : "false",
 			traveler_first_name : ["Jason","Billy"],
 			traveler_last_name : ["APITest","Boggs"],
@@ -37,7 +37,7 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 			trip_start_date : "9/29/2021",
 			trip_end_date : "10/9/2021",
 			initial_deposit_date : todayStr,
-			program : "harbor",
+			program : "ripcord",
 			quoted_price : "",
 			street_address : "123 C Street",
 			city : "Santa Cruz",
@@ -47,7 +47,7 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 			home_phone : "",
 			email : "test@test.com",
 			send_email : "true",
-			agent_override : "tcs", //Optional 
+			//agent_override : "tcs", //Optional 
 			api_token : json.api_token
 		});
 		

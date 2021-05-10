@@ -15,7 +15,7 @@ $result = json_decode($result,true);
 $endpoint = "/api/quote/generate_quote.php";
 
 $data = array( "resident_country" => "US",
-			   "resident_state" => "CA",
+			   "resident_state" => "FL",
 			   "destination_countries" => array("US","UK","CR"),
 			   "travel_insurance_type" => "2",
 			   "evac_type" => "2",
@@ -27,7 +27,7 @@ $data = array( "resident_country" => "US",
 			   "trip_start_date" => "9/29/2021",
 			   "trip_end_date" => "10/9/2021",
 			   "initial_deposit_date" => date("m/d/Y"),
-			   "program" => "harbor",
+			   "program" => "ripcord",
 			   "api_token" => $result['api_token'],
 			   "quoted_price" => "",
 			   "street_address" => "123 C Street",
