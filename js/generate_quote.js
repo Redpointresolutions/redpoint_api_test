@@ -26,8 +26,7 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 		data = JSON.stringify({ 
 			resident_country : "US",
 			resident_state : "CA",
-			destination_country : "UK",
-			additional_destination_countries : "SG,CR", //Optional
+			destination_countries : ["UK,SG,CR"], 
 			travel_insurance_type : "2",
 			evac_type : "2",
 			cancel_policy : "false",
@@ -39,7 +38,7 @@ fetch('http://ripcord-api.test/api/agent/agent_login.php', { //Local Test
 			trip_end_date : "10/9/2021",
 			initial_deposit_date : todayStr,
 			program : "harbor",
-			quoted_price : "333",
+			quoted_price : "",
 			street_address : "123 C Street",
 			city : "Santa Cruz",
 			state : "CA",

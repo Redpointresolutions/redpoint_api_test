@@ -16,7 +16,7 @@ $endpoint = "/api/quote/generate_quote.php";
 
 $data = array( "resident_country" => "US",
 			   "resident_state" => "CA",
-			   "destination_country" => "US",
+			   "destination_countries" => array("US","UK","CR"),
 			   "travel_insurance_type" => "2",
 			   "evac_type" => "2",
 			   "cancel_policy" => "false",
