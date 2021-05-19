@@ -24,6 +24,8 @@ fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', 
 		data = JSON.stringify({ 
 		   traveler_dob : ["12/12/1987","2/2/1946"],
 		   traveler_trip_cost : ["3456","3423"],
+		   //trip_num_days : 1,
+		   //traveler_age : [45,56],
 		   //trip_start_date : "9/29/2021",
 		   //trip_end_date : "10/9/2021",
 		   //program: "harbor", //Optional defaults to ripcord
