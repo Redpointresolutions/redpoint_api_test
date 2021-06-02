@@ -13,8 +13,8 @@ let data = {
 };
 
 
-fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', {
-//fetch('http://ripcord-api.test/api/agent/agent_login.php', {
+//fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', {
+fetch('http://ripcord-api.test/api/agent/agent_login.php', {
 	  method: 'POST',
 	  body: JSON.stringify(data),
    	  headers: { 'Content-Type': 'application/json' }
@@ -28,16 +28,16 @@ fetch('https://api-staging.redpointtravelprotection.com/api/agent/agent_login', 
 		   //traveler_age : [45,56],
 		   //trip_start_date : "9/29/2021",
 		   //trip_end_date : "10/9/2021",
-		   //program: "harbor", //Optional defaults to ripcord
+		   program: "harbor", //Optional defaults to ripcord
 		   //agent_override: "tcs", //Optional defaults to blank. 
-		   //cancel_policy: true, //Optional. defaults to false
+		   include_cfar: true, //Optional. defaults to false
 		   api_token : json.api_token
 		});
 		
 		console.log( JSON.parse(data,null,4) );
 		
-		//fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
-		fetch('http://ripcord-api.test/api/quote/get_price.php', {
+		fetch('https://api-staging.redpointtravelprotection.com/api/quote/get_price', {
+		//fetch('http://ripcord-api.test/api/quote/get_price.php', {
 			method: 'POST',
 			body: data,
 		   	headers: { 'Content-Type': 'application/json' }

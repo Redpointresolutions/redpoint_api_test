@@ -2,8 +2,8 @@
 /** Test for the generate_quote endpoint */
 require_once( "call_api.php" );
 
-//$base_url = "http://ripcord-api.test";
-$base_url = "https://api-staging.redpointtravelprotection.com";
+$base_url = "http://ripcord-api.test";
+//$base_url = "https://api-staging.redpointtravelprotection.com";
 $endpoint = "/api/agent/agent_login.php";
 
 $data = array( "agent_id" => "test_account",
@@ -17,7 +17,7 @@ $endpoint = "/api/quote/generate_quote.php";
 
 $data = array( "resident_country" => "US",
 			   "resident_state" => "FL",
-			   "destination_countries" => array("US","AQ","CR"),
+			   "destination_countries" => array("US","HK","CR"),
 			   "travel_insurance_type" => "2",
 			   "evac_type" => "2",
 			   "cancel_policy" => "false",

@@ -12,11 +12,9 @@ $data = array( "agent_id" => "test_account",
 $result = call_api( $base_url.$endpoint, json_encode($data) );
 $result = json_decode($result,true);
 
-$endpoint = "/api/policy/update_policy.php";
+$endpoint = "/api/policy/get_policy_docs.php";
 
-$data = array( "redpoint_policy_number" => "UOI202150509",
-			   "trip_cost_updates" => array("500"),
-			   "send_email" => "true",
+$data = array( "redpoint_policy_number" => "UOI202150513",
 			   "api_token" => $result['api_token'],
 			 );
 
